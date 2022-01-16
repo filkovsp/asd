@@ -1,9 +1,14 @@
 import { Pool } from "pg";
 
-const dbUrl = process.env.DATABASE_URL || "postgres://localhost:5432/cyf";
+const dbUrl = process.env.DATABASE_URL || "postgres://localhost:5432/asd";
 
-const pool = new Pool({
-	connectionString: dbUrl,
+export const pool = new Pool({
+	// connectionString: dbUrl,
+	host: "localhost",
+	port: 5432,
+	database: "asd",
+	user: "postgres",
+	password: "postgres",
 	connectionTimeoutMillis: 5000,
 	ssl: dbUrl.includes("localhost") ? false : { rejectUnauthorized: false },
 });
@@ -21,5 +26,4 @@ export const connectDb = async () => {
 };
 
 export const disconnectDb = () => pool.close();
-
 export default { query: pool.query.bind(pool) };
