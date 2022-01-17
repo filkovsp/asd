@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Grommet, Box } from "grommet";
 
 import "./Home.css";
 import logo from "./logo.svg";
@@ -36,6 +37,11 @@ export function Home() {
 					{message}
 				</h1>
 				<Link to="/about/this/site">About</Link>
+				<Grommet>
+					<Box>
+						This is Grommet Box
+					</Box>
+				</Grommet>
 			</div>
 		</main>
 	);
